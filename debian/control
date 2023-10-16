@@ -1,15 +1,64 @@
-Source: template-repository
-Section: unknown
+Source: haskell-iproute
+Maintainer: Debian Haskell Group <pkg-haskell-maintainers@lists.alioth.debian.org>
+Uploaders: Clint Adams <clint@debian.org>
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Section: haskell
+Rules-Requires-Root: no
+Build-Depends:
+ cdbs,
+ debhelper (>= 10),
+ ghc (>= 8),
+ ghc-prof,
+ haskell-devscripts (>= 0.13),
+ libghc-appar-dev,
+ libghc-appar-prof,
+ libghc-byteorder-dev,
+ libghc-byteorder-prof,
+ libghc-network-dev,
+ libghc-network-prof,
+Build-Depends-Indep:
+ ghc-doc,
+ libghc-appar-doc,
+ libghc-byteorder-doc,
+ libghc-network-doc,
+Standards-Version: 4.1.4
+Homepage: http://www.mew.org/~kazu/proj/iproute/
+Vcs-Browser: https://salsa.debian.org/haskell-team/DHG_packages/tree/master/p/haskell-iproute
+Vcs-Git: https://salsa.debian.org/haskell-team/DHG_packages.git [p/haskell-iproute]
+X-Description: Haskell IP routing table
+ IP Routing Table is a tree of IP ranges to search one of them on
+ the longest match base. It is a kind of TRIE with one way branching
+ removed. Both IPv4 and IPv6 are supported.
 
-Package: template-repository
+Package: libghc-iproute-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${haskell:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Recommends: ${haskell:Recommends}
+Suggests: ${haskell:Suggests}
+Provides: ${haskell:Provides}
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+ ${haskell:LongDescription}
+ .
+ ${haskell:Blurb}
+
+Package: libghc-iproute-prof
+Architecture: any
+Depends: ${haskell:Depends}, ${misc:Depends}
+Recommends: ${haskell:Recommends}
+Suggests: ${haskell:Suggests}
+Provides: ${haskell:Provides}
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+ ${haskell:LongDescription}
+ .
+ ${haskell:Blurb}
+
+Package: libghc-iproute-doc
+Architecture: all
+Section: doc
+Depends: ${haskell:Depends}, ${misc:Depends}
+Recommends: ${haskell:Recommends}
+Suggests: ${haskell:Suggests}
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+ ${haskell:LongDescription}
+ .
+ ${haskell:Blurb}
